@@ -20,8 +20,8 @@ int show_menu(){
 }
 
 
-int combat(float h_enemy, float a_enemy, float h_pikachu, const string& my_pokemon, string& name_pokemon){
-    int total = 0;
+void combat(float h_enemy, float a_enemy, float h_pikachu, const string& my_pokemon, string& name_pokemon){
+    float attack_spark = 9.5, attack_ballvolt = 12.5;
     char user_select_damage;
 
     cout<<"Tu oponente sera "<<name_pokemon <<endl;
@@ -34,10 +34,10 @@ int combat(float h_enemy, float a_enemy, float h_pikachu, const string& my_pokem
         cin>>user_select_damage;
 
         if(user_select_damage == 'a'){
-            h_enemy -= 9.5;
+            h_enemy -= attack_spark;
             cout<<""<<my_pokemon <<" hizo un ataque de 9.5 de daño\n";
         }else if(user_select_damage == 'b'){
-            h_enemy -= 12.5;
+            h_enemy -= attack_ballvolt;
             cout<<""<<my_pokemon <<" hizo un ataque de 12.5 de daño\n";
         }
 
@@ -57,7 +57,6 @@ int combat(float h_enemy, float a_enemy, float h_pikachu, const string& my_pokem
     }
 
     cout<<"El combate ha terminado\n";
-    return(total);
 }
 
 
@@ -71,23 +70,20 @@ int main() {
         final_decision = show_menu();
 
         if(final_decision == BULBASSAUR){
-            //int health_enemy = 100;
             string name_pokemon = "Bulbasaur";
-            float attack_pokemon = 10.5, health_enemy = 100;
+            float attack_pokemon = 11.5, health_enemy = 100;
 
             combat(health_enemy, attack_pokemon, health_pikachu, my_pokemon, name_pokemon);
 
         }else if(final_decision == CHARMANDER){
-            //int health_enemy = 80;
             string name_pokemon = "Charmander";
-            float attack_pokemon = 7.5, health_enemy = 80;
+            float attack_pokemon = 8.5, health_enemy = 80;
 
             combat(health_enemy, attack_pokemon, health_pikachu, my_pokemon, name_pokemon);
 
         }else if(final_decision == SQUIRTL){
-            //int health_enemy = 90;
             string name_pokemon = "Squirtl";
-            float attack_pokemon = 8.5, health_enemy = 90;
+            float attack_pokemon = 10.5, health_enemy = 90;
 
             combat(health_enemy, attack_pokemon, health_pikachu, my_pokemon, name_pokemon);
 
